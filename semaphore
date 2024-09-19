@@ -1,0 +1,54 @@
+#define BUFFERSIZE 10 
+int mutex,n,empty,full=0,item,item1; 
+int buffer[20]; 
+int in=0,out=0,mutex=1; 
+void wait(int s) 
+{ 
+}
+ while(s<0) 
+{ 
+} 
+s--; 
+printf(“\nCannot add an item\n”); exit(0); 
+void signal(int s) 
+{ 
+} 
+s++; 
+void producer() 
+{ 
+} 
+do 
+{ 
+} 
+wait (empty); 
+wait(mutex); 
+printf(“\nEnter an item:”); 
+scanf(“%d”,&item); 
+buffer[in]=item; 
+in=in+1; 
+signal(mutex); 
+signal(full); 
+while(in<n); 
+void consumer() 
+{ 
+} 
+do 
+{ 
+} 
+wait(full); 
+wait(mutex); 
+item1=buffer[out]; 
+printf(“\nConsumed item =%d”,item1); out=out+1; 
+signal(mutex); 
+signal(empty); 
+while(out<n); 
+void main() 
+{ 
+printf(“Enter the value of n:”); 
+scanf(“%d “,&n); 
+empty=n; 
+while(in<n) 
+producer(); 
+while(in!=out) 
+consumer(); 
+} 
